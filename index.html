@@ -6,32 +6,82 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Registration Form</h3>
     <form >
+        <table>
+            <tr>
+              <td><label>First Name: </label></td>
+              <td><input type="text"></td>
+            </tr>
+            <tr>
+              <td><label>Last Name: </label></td>
+              <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td> <label>ID: </label></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td><label>Email: </label></td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td><label>Password: </label></td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td><label>Date of birth: </label></td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td><label>Gender: </label> <br></td>
+                <td> <input type="radio" name="Gender" > Male  
+                    <input type="radio" name="Gender"  > female  
+                    <input type="radio" name="Gender"  > Other
+                </td>
+            </tr>
+            <tr>
+                <td><label>Skills</label><br></td>
+                <td>
+                    <input type="checkbox" name="SKills" > HTML, CSS <br>
+                    <input type="checkbox" name="SKills" > Python, Django <br>
+                    <input type="checkbox" name="SKills" > Javascript, PHP <br>
 
-    <label>First Name: </label><br>
-    <input type="text"> <br> 
-    <label>Last Name: </label><br>
-    <input type="text"><br>
-    <label>ID: </label><br>
-    <input type="number"><br>
-    <label>Email: </label><br>
-    <input type="email"><br>
-    <label>Password: </label><br>
-    <input type="password"><br>
-    <label>Date of birth: </label><br>
-    <input type="date"><br>
-    <label>Gender: </label><br>
-    <input type="radio" id="male"  value="Male" name="Gender">
-    <label for="male">Male</label><br>
-    <input type="radio" id="female"  value="Female" name="Gender">
-    <label for="female">Female</label><br>
-    <label for="female">Skills</label><br>
-    <input type="checkbox" id="HTML" name="HTML" value="HTML">
-    <label for="HTML"> HTML, CSS</label><br>
-    <input type="checkbox" id="Python" name="Python" value="Python">
-    <label for="Python"> Python, Django</label><br>
-    <input type="checkbox" id="Javascript" name="Javascript" value="Javascript">
-    <label for="Javascript"> Javascript, PHP</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Dept:</td>
+                <td>
+                    <select>
+                        <option >CSE</option>
+                        <option >EEE</option>
+                        <option >BBA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Image:</td>
+                <td><input type="file" /></td>
+            </tr>
+            <tr>
+                <td>Address: </td>
+                <td><textarea></textarea> </td>
+            </tr>
+            <tr>
+                <td><input type="button"  value="Click" /> 
+                    
+                </td>
+                <td>
+                    <input type="submit"  value="Submit"  />
+                    <input type="reset"  value="Reset"  />
+                </td>
+                
+                
+            </tr>
+           
+          </table>
+    
+   
     </form>
 </body>
 </html>
