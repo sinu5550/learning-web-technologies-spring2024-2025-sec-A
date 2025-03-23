@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JS Example</title>
+</head>
+
+<body>
+    <h1 id="abc">JS Example</h1>
+    <form action="home.html" onsubmit="return validate()">
+        Username: <input type="text" name="username" id="username" value="" />
+        <p id="umsg"></p>
+        Password: <input type="password" name="password" id="password" value="" />
+        <p id="pmsg"></p>
+        <input type="submit" name="submit" id="submit" value="Submit" />
+        <p id="vmsg"></p>
+    </form>
+
+    <script>
+        let name = "alamin";
+        let std = [1, 'alamin', 2.5, 'alamin@aiub.edu'];
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        function abc(a, b) {
+            return a + b;
+        }
+
+        let f1 = function (a, b) {
+            return a + b;
+        }
+
+        let f2 = (a, b) => a + b;
+        console.log('test');
+
+        function abc() {
+            let head = document.getElementById('abc');
+            head.innerHTML = "TESTING from JS";
+        }
+
+        function test() {
+            let username = document.getElementById('username').value;
+            let msg = document.getElementById('umsg');
+
+            if (username === "") {
+                msg.innerHTML = "Please type username first!";
+                msg.style.color = 'red';
+            } else {
+                document.getElementById('abc').innerHTML = username;
+                msg.innerHTML = "";
+            }
+        }
+
+        function validate() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let umsg = document.getElementById('umsg');
+            let pmsg = document.getElementById('pmsg');
+            let vmsg = document.getElementById('vmsg');
+
+            let isValid = true;
+
+            // Validate username (null check)
+            if (username === "") {
+                umsg.innerHTML = "Username cannot be empty!";
+                umsg.style.color = 'red';
+                isValid = false;
+            } else {
+                umsg.innerHTML = "";
+            }
+
+            // Validate password (null check)
+            if (password === "") {
+                pmsg.innerHTML = "Password cannot be empty!";
+                pmsg.style.color = 'red';
+                isValid = false;
+            } else {
+                pmsg.innerHTML = "";
+            }
+
+            // Validate username === password
+            if (username !== "" && password !== "" && username === password) {
+                vmsg.innerHTML = "Username and password cannot be the same!";
+                vmsg.style.color = 'red';
+                isValid = false;
+            } else {
+                vmsg.innerHTML = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
