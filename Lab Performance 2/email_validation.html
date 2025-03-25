@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+
+<body>
+
+    <form id="emailForm" onsubmit="return validateEmail()">
+        <label for="email">Email</label><br>
+        <input type="text" id="email" name="email"><br>
+        <p id="error"></p><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var errorMessage = document.getElementById("error");
+
+
+            if (email === "") {
+                errorMessage.innerHTML = "Email cannot be empty.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            if (!(email.includes("@") && email.includes("."))) {
+                errorMessage.innerHTML = "Enter a valid email address (e.g., anything@example.com).";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            var atIndex = email.indexOf("@");
+            var dotIndex = email.lastIndexOf(".");
+            if (atIndex < 1 || dotIndex < atIndex + 2 || dotIndex + 2 >= email.length) {
+                errorMessage.innerHTML = "Enter a valid email address (e.g., anything@example.com).";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            errorMessage.innerHTML = "";
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

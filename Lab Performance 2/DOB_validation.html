@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Validation</title>
+</head>
+
+<body>
+
+    <form id="dobForm" onsubmit="return validateDOB()">
+        <fieldset>
+            <legend>Date of Birth</legend>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th></th>
+                    <th>Month</th>
+                    <th></th>
+                    <th>Year</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="day" name="day" size="2"></td>
+                    <td>/</td>
+                    <td><input type="text" id="month" name="month" size="2"></td>
+                    <td>/</td>
+                    <td><input type="text" id="year" name="year" size="4"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <p id="error"></p><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateDOB() {
+            var day = document.getElementById("day").value.trim();
+            var month = document.getElementById("month").value.trim();
+            var year = document.getElementById("year").value.trim();
+            var errorMessage = document.getElementById("error");
+
+
+            if (day === "" || month === "" || year === "") {
+                errorMessage.innerHTML = "Date of Birth cannot be empty.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                errorMessage.innerHTML = "Date of Birth must be a valid number.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            var dayNum = parseInt(day, 10);
+            var monthNum = parseInt(month, 10);
+            var yearNum = parseInt(year, 10);
+
+            if (dayNum < 1 || dayNum > 31) {
+                errorMessage.innerHTML = "Day must be between 1 and 31.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            if (monthNum < 1 || monthNum > 12) {
+                errorMessage.innerHTML = "Month must be between 1 and 12.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            if (yearNum < 1900 || yearNum > 2020) {
+                errorMessage.innerHTML = "Year must be between 1900 and 2020.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            errorMessage.innerHTML = "";
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

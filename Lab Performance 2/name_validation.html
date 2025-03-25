@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Name Validation</title>
+</head>
+
+<body>
+
+    <form id="nameForm" onsubmit="return validateName()">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br>
+        <p id="error"></p><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateName() {
+            var name = document.getElementById("name").value;
+            var errorMessage = document.getElementById("error");
+
+
+            if (name === "") {
+                errorMessage.innerHTML = "Name cannot be empty.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            var word = name.split(" ");
+            if (word.length < 2) {
+                errorMessage.innerHTML = "Name must contain at least two words.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            var firstChar = name.charAt(0);
+            if (!((firstChar >= 'A' && firstChar <= 'Z') || (firstChar >= 'a' && firstChar <= 'z'))) {
+                errorMessage.innerHTML = "Name must start with a letter.";
+                errorMessage.style.color = "red";
+                return false;
+            }
+
+            for (var i = 0; i < name.length; i++) {
+                var char = name.charAt(i);
+                if (!((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z') || char === '.' || char === '-' || char === ' ')) {
+                    errorMessage.innerHTML = "Name can only contain letters, dots (.), dashes (-), and spaces.";
+                    errorMessage.style.color = "red";
+                    return false;
+                }
+            }
+
+            errorMessage.innerHTML = "";
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
